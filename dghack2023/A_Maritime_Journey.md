@@ -28,8 +28,6 @@ Long = W 04° 47' 20.399''
 
 so flag is DGHACK{481558.20N,044720.40W}
 
-DGHACK{12092023170241}
-
 # PART 3
 
 Forgot to write that part.. Trivial anyway, right ? :)
