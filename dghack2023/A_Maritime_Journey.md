@@ -96,12 +96,78 @@ It showed me the boat path. We can see that it was stuck on the y axis at the va
 I searched packets that contained 958.609:
 
 This one was the last one before being stuck :
-```$GPGGA,170334.50,5000.910034,N,958.609,W,0,00,,,M,0.0,M,,*79```
+```
+$GPGGA,170334.50,5000.910034,N,958.609,W,0,00,,,M,0.0,M,,*79
+```
 
 And this one was the first stuck packet:
-```$GPRMC,170335.10,V,5000.910034,N,958.609,W,,,2023,09,12,A,N*03```
+```
+$GPRMC,170335.10,V,5000.910034,N,958.609,W,,,2023,09,12,A,N*03
+```
 
 
 Using their UTC times, i figured out the flag (one of these,i can't remember):
 
-DGHACK{12092023170333} or DGHACK{12092023170334} or DGHACK{12092023170335} (kinda brute forced this one eheh)
+`DGHACK{12092023170333}` or `DGHACK{12092023170334}` or `DGHACK{12092023170335}` (kinda brute forced this one eheh)
+
+# PART 6
+
+```
+Après avoir compris que le Sam Brandy s'est peut-être retrouvé dans une zone exposée au risque de brouillage GPS, il est probable que, d'après votre expérience, l'un des navires rencontrés par le Sam Brady ait cherché à cacher ses activités illicites (pêches illégales, contrebande, piraterie, ...). Vous avez récupéré les enregistrements AIS captés par le remorqueur, essayez d'identifier un navire qui aurait changer d'identité maritime en cours de route.
+Format du Flag : DGHACK{oldDATA_newDATA}
+Fichier join : https://www.dghack.fr/uploads/event-dghack-2023/a-maritime-journey/AIS_dump.txt
+```
+
+Gosh, this one seems to be pure hell :)
+After reading some docs about AIS, i saw that packet has different types.
+The one that uses 5 contains the maritime identifier, called "mmsi".
+
+I used pyais that allows to parse and decode AIS datas.
+Inside it, i looked for boats that had the same name and callsigns, but different mmsi.
+
+I used this script:
+```
+from pyais.stream import FileReaderStream
+
+filename = "AIS_dump.txt"
+mmsis = []
+shipname_with_mmsi = []
+i = 0
+for msg in FileReaderStream(filename):
+	decoded = msg.decode().asdict()
+	if 'shipname' in decoded and 'callsign' in decoded  and decoded['callsign'] != '' and (decoded['mmsi'], decoded['shipname'], decoded['callsign']) not in shipname_with_mmsi :
+		mmsis.append(decoded['mmsi'])
+		shipname_with_mmsi.append((decoded['mmsi'], decoded['shipname'], decoded['callsign']))
+	
+	# Progress
+	i+=1
+	if (i%100000 == 0):
+		print(i)
+	
+for elem in shipname_with_mmsi:
+	for elem2 in shipname_with_mmsi:
+		if elem[1] == elem2[1] and elem[2] == elem2[2] and elem[0] != elem2[0] :
+			print(elem)
+			print(elem2)
+
+```
+Which gave me these result:
+```
+(227861937, 'DELTA YELLOW', 'DY34975')
+(883686372, 'DELTA YELLOW', 'DY34975')
+(368227640, 'HARMONY', 'HARMONY')
+(338417401, 'HARMONY', 'HARMONY')
+(338417401, 'HARMONY', 'HARMONY')
+(368227640, 'HARMONY', 'HARMONY')
+(883686372, 'DELTA YELLOW', 'DY34975')
+(227861937, 'DELTA YELLOW', 'DY34975')
+```
+
+I tried the first possibility for the flag: `DGHACK{227861937_883686372}`.
+And.. that was the correct flag.
+
+Really liked this challenge, unusual one :)
+
+
+
+
