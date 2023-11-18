@@ -1,0 +1,9 @@
+We can see in the page code that it uses AES with CTR mode, and we can also see 2 cyphertexts:
+
+A very long one, starting with:
+34aff6de8f8c01b25c56c52261e49cbddQsBGjy+uKhZ7z3+zPhswKWQHMYJpz7wffAe4Es/bwrJmMo99Kv7XJ8P63TbN/8X
+
+And a short one, which is :
+34aff6de8f8c01b25c56c52261e49cbdC19FW3jqqqxd6G/z0fcpnOSIBsUSvD+jZ7E9/VkscwDMrdk9i9efIvJw1Fj6Fs0R
+
+We can see that the 32 first chars are the same !
