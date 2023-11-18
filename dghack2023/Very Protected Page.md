@@ -23,8 +23,8 @@ Without the zeros and the IVs:
 
 Ciphers:
 
-`750b011a3cbeb8a859ef3dfeccf86cc0a5901cc609a73ef07df01ee04b3f6f0ac998ca3df4abfb5c9f0feb74db37ff17`
-`0b5f455b78eaaaac5de86ff3d1f7299ce48806c512bc3fa367b13dfd592c7300ccadd93d8bd79f22f270d458fa16cd11`
+Long one : `750b011a3cbeb8a859ef3dfeccf86cc0a5901cc609a73ef07df01ee04b3f6f0ac998ca3df4abfb5c9f0feb74db37ff17`
+Short one: `0b5f455b78eaaaac5de86ff3d1f7299ce48806c512bc3fa367b13dfd592c7300ccadd93d8bd79f22f270d458fa16cd11`
 
 Xor of both plaintexts:
 
