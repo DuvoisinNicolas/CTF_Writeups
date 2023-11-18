@@ -43,3 +43,58 @@ Tried to XOR with it...
 And we get:
 
 `<!-- temporary password : My2uperPas`
+
+Time to bruteforce !!!
+
+I used this program (thank you chatGPT for turning my disgusting code to this one):
+```
+{
+const baseStr = "My2uperPas";
+// const letters = [
+//   "sS$5",
+//   "wW",
+//   "oO0@",
+//   "rR5",
+//   "dD5",
+//   "!#$%-:;?()"
+// ];
+
+const letters = [
+    "sS$5",
+    "pP",
+    "hH#",
+    "rR5",
+    "aA@4",
+    "sS$5",
+    "eE3"
+  ];
+
+function generatePasswordsRecursive(currentPassword, currentIndex) {
+  if (currentIndex === letters.length) {
+    console.log(currentPassword);
+    document.querySelector("#crypt-password").value = currentPassword;
+    document.querySelector(".crypt-decrypt-button").click();
+    return;
+  }
+
+  const currentLetterSet = letters[currentIndex];
+
+  for (let i = 0; i < currentLetterSet.length; i++) {
+    const newPassword = currentPassword + currentLetterSet[i];
+    generatePasswordsRecursive(newPassword, currentIndex + 1);
+  }
+}
+
+function generatePasswords() {
+  generatePasswordsRecursive(baseStr, 0);
+}
+
+generatePasswords();
+}
+```
+
+I ran it in my browser console, and got the flag !
+
+Password was `My2uperPassphras3`, and flag was `DGHACK{w3ak_pa22word2_ar3n-t_n3at` !
+
+My first crypto chall, kinda happy on that one :)
