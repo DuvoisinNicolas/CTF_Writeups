@@ -47,7 +47,7 @@ And we get:
 Time to bruteforce !!!
 
 I used this program (thank you chatGPT for turning my disgusting code to this one):
-```
+```javascript
 {
 const baseStr = "My2uperPas";
 // const letters = [
