@@ -113,3 +113,5 @@ while(True):
 
 
 ```
+
+`DGHACK{ThisDragonIsNowStuffed}`
