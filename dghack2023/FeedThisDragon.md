@@ -72,11 +72,11 @@ while(True):
         }
 
         match item['type']:
-            case "gem" | "coin" | "food" | "candy" | "burger" | "veggy" | "life" |"secret" | "lilboo":
+            case "gem" | "coin" | "food" | "candy" | "burger" | "veggy" | "life" |"secret" | "lilboo" | "nyan":
                 # Eat food or kill fox
                 response = send_api_request(HEADERS)
                 #print("clicking on the", item['type'])
-            case "trap" | "fox" | "nyan":
+            case "trap" | "fox" :
                 pass
                 # Do nothing
             case "midboo":
