@@ -12,6 +12,7 @@ I :
 - Waited at least 1 minute
 - Sent validation code
 
+Hopefully, for fresh accounts, you have 30 mins to get a 90% discount flag ! That's only 500 requests (and not 5000...)
 Here is the code i used:
 
 ```python
@@ -255,3 +256,5 @@ if __name__ == "__main__":
         ready_to_send = reminder_to_send
 
 ```
+
+Got the flag ! `DGHACK{ButWhereCanIActuallySpendIt}` !
