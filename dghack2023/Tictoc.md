@@ -71,5 +71,8 @@ if __name__ == "__main__":
 
 ```
 
-Password was very long... ``
-And that gives us the flag: ``
+Password was very long... `BiorO6ms0 dcceri0uhwNAMVzc1258aefVPa*Acknduan cgu_zcndd`
+
+And that gives us the flag: `
+DGHACK{Just_In_Time_to_Not_Waste_My_Time}
+`
