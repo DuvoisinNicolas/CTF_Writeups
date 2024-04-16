@@ -44,8 +44,7 @@ export default defineEventHandler((event) => {
 });
 ```
 https://blog.securityevaluators.com/hacking-the-javascript-lottery-80cc437e3b7f
-
-
+Haven't found that one.
 # Box 2
 ```typescript
     case Math.abs(key - ts) < 60:
