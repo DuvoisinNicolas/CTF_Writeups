@@ -82,7 +82,7 @@ We now want to replace that address with the beginning of our buffer address, in
 
 This image explains nicely how the stack works, and how to write the payload.
 
-![[Pasted image 20240313114443.png]]
+![](_attachments/Pasted%20image%2020240313114443.png)
 
 I tried to put the buffer address i found:
 
