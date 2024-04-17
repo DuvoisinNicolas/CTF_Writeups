@@ -379,7 +379,7 @@ Since the zip is using the method Deflate, i have to know the entire file i'm at
 After some days, i though i could maybe find the "home/VERSION" file online, as we know the service that was used.
 
 I used Google dorking to do my research:
-`"/home/VERSION ivanti`
+`"/home/VERSION" ivanti`
 
 I finally ended up on this page:
 https://www.synacktiv.com/sites/default/files/2024-01/synacktiv-pulseconnectsecure-multiple-vulnerabilities.pdf
